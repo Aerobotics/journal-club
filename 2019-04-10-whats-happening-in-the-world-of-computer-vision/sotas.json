@@ -1,0 +1,114 @@
+{
+  "detection": [
+    {
+      "date": "2013-11-14",
+      "team_name": "UvA-Euvision",
+      "mean_ap": 0.22581,
+      "description": "imagenet_detection_2013.txt"
+    },
+    {
+      "date": "2014-08-18",
+      "team_name": "NUS",
+      "mean_ap": 0.37212,
+      "description": "imagenet_detection_2014.txt"
+    },
+    {
+      "date": "2015-12-10",
+      "team_name": "MSRA",
+      "mean_ap": 0.620741,
+      "description": "imagenet_detection_2015.txt"
+    },
+    {
+      "date": "2016-09-26",
+      "team_name": "CUImage",
+      "mean_ap": 0.662751,
+      "description": "imagenet_detection_2016.txt"
+    },
+    {
+      "date": "2017-07-17",
+      "team_name": "BDAT",
+      "mean_ap": 0.731392,
+      "description": "imagenet_detection_2017.txt"
+    }
+  ],
+  "classification": [
+    {
+      "date": "2010-09-03",
+      "team_name": "NEC-UIUC",
+      "error": 0.28191,
+      "description": "imagenet_classification_2010.txt"
+    },
+    {
+      "date": "2011-10-26",
+      "team_name": "XRCE",
+      "error": 0.25770,
+      "description": "imagenet_classification_2011.txt"
+    },
+    {
+      "date": "2012-10-13",
+      "team_name": "SuperVision",
+      "error": 0.16422,
+      "description": "imagenet_classification_2012.txt"
+    },
+    {
+      "date": "2013-11-14",
+      "team_name": "Clarifai",
+      "error": 0.11743,
+      "description": "imagenet_classification_2013.txt"
+    },
+    {
+      "date": "2014-08-18",
+      "team_name": "GoogeLeNet",
+      "error": 0.06656,
+      "description": "imagenet_classification_2014.txt"
+    },
+    {
+      "date": "2015-12-10",
+      "team_name": "MSRA",
+      "error": 0.03567,
+      "description": "imagenet_classification_2015.txt"
+    },
+    {
+      "date": "2016-09-26",
+      "team_name": "Trimps-Soushen",
+      "error": 0.02991,
+      "description": "imagenet_classification_2016.txt"
+    },
+    {
+      "date": "2017-07-17",
+      "team_name": "NUS-Qihoo_DPNs (CLS-LOC)",
+      "error": 0.02251,
+      "description": "imagenet_classification_2017.txt"
+    }
+  ],
+  "instance_segmentation": [
+    {
+      "date": "2015-12-10",
+      "team_name": "MSRA",
+      "ap_50": 0.515,
+      "ap_75": 0.279,
+      "description": "coco_instance_segmentation_2015.txt"
+    },
+    {
+      "date": "2016-10-02",
+      "team_name": "MSRA",
+      "ap_50": 0.599,
+      "ap_75": 0.396,
+      "description": "coco_instance_segmentation_2016.txt"
+    },
+    {
+      "date": "2017-10-15",
+      "team_name": "UCenter",
+      "ap_50": 0.694,
+      "ap_75": 0.507,
+      "description": "coco_instance_segmentation_2017.txt"
+    },
+    {
+      "date": "2018-08-29",
+      "team_name": "MMDet",
+      "ap_50": 0.730,
+      "ap_75": 0.530,
+      "description": "coco_instance_segmentation_2018.txt"
+    }
+  ]
+}

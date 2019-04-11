@@ -1,0 +1,19 @@
+This submission is based on our recent ICLR’14 work called “Network in Network”, and there are four major components for the whole solution:
+
+Network In Network (NIN) [key contribution]:
+We trained an NIN which is a special modification of CNN [Min et al. 2014] with 14 parameterized layers. NIN uses a shared multilayer perceptron as the convolution kernel to convolve the underlying input, the resulting structure is equivalent to adding cascaded cross channel parametric (CCCP) pooling on top of convolutional layer. Adding CCCP layer significantly improves the performance as compared to vanilla convolution.
+
+Augmented training and testing sample:
+This improvement is first described by Andrew Howard [Andrew 2014]. Instead of resizing and cropping the image to 256x256, the image is proportionally resized to 256xN (or Nx256) with the short edge to 256. Subcrops of 224x224 are then randomly extracted for training. During testing, 3 views of 256x256 are extracted and each view goes through the 10 view testing described by [Alex et al. 2013].
+
+Traditional features with SVM:
+Traditional classification framework can provide complementary information, such as scene level information, to NIN network. Hence, we integrate the outputs from the traditional framework (based on our PASCAL VOC2012 winning solutions, with the new extension of high-order parametric coding in which the first and second order parameters of the adapted GMM for each instance are both considered) to further improve the performance.
+
+Kernel regression for fusion of results:
+Finally, we employ non-parametric rectification method to correct/rectify the outputs from multiple models for obtaining more accurate prediction. Basically for each sample in the training and validation sets, we have a pair of outputs-from-multi-models and ground-truth label. For a testing sample, we use regularized kernel regression method to determine the affinities between the test sample and its auto-selected training/validation samples, and then the affinities are utilized to fuse the ground-truth labels of these selected samples to produce a rectified prediction.
+
+Min Lin, Qiang Chen, and Shuicheng Yan. "Network In Network." International Conference on Learning Representations. 2014.
+
+Howard, Andrew G. "Some Improvements on Deep Convolutional Neural Network Based Image Classification." International Conference on Learning Representations. 2014.
+
+Krizhevsky, Alex, Ilya Sutskever, and Geoffrey E. Hinton. "Imagenet classification with deep convolutional neural networks." Advances in neural information processing systems. 2012.

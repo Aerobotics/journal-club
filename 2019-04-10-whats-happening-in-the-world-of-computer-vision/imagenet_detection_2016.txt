@@ -1,0 +1,19 @@
+Compared with CUImage submission in ILSVRC 2015, the new components are as follows.  
+(1) The models are pretrained for 1000-class object detection task using the approach in [a] but adapted to the fast-RCNN for faster detection speed. 
+(2) The region proposal is obtained using the improved version of CRAFT in [b]. 
+(3) A GBD network [c] with 269 layers is fine-tuned on 200 detection classes with the gated bidirectional network (GBD-Net), which passes messages between features from different support regions during both feature learning and feature extraction. The GBD-Net is found to bring ~3% mAP improvement on the baseline 269 model and ~5% mAP improvement on the Batch normalized GoogleNet.  
+(4) For handling their long-tail distribution problem, the 200 classes are clustered. Different from the original implementation in [d] that learns several models, a single model is learned, where different clusters have both shared and distinguished feature representations. 
+(5) Ensemble of the models using the approaches mentioned above lead to the final result in the provided data track. 
+(6) For the external data track, we propose object detection with landmarks. Comparing to the standard bounding box centric approach, our landmark centric approach provides more structural information and can be used to improve both the localization and classification step in object detection. Based on the landmark annotations provided in [e], we annotate 862 landmarks from 200 categories on the training set. Then we use them to train a CNN regressor to predict landmark position and visibility of each proposal in testing images. In the classification step, we use the landmark pooling on top of the fully convolutional network, where features around each landmark are mapped to be a confidence score of the corresponding category. The landmark level classification can be naturally combined with standard bounding box level classification to get the final detection result. 
+(7) Ensemble of the models using the approaches mentioned above lead to the final result in the external data track. 
+
+
+The fastest publicly available multi-GPU caffe code is our strong support [f].  
+
+
+[a] W. Ouyang, X. Wang, X. Zeng, S. Qiu, P. Luo, Y. Tian, H. Li, S. Yang, Z. Wang, C. Loy, X. Tang, “DeepID-Net: Deformable Deep Convolutional Neural Networks for Object Detection,” CVPR 2015.  
+[b] Yang, B., Yan, J., Lei, Z., Li, S. Z. "Craft objects from images." CVPR 2016. 
+[c] X. Zeng, W. Ouyang, B. Yang, J. Yan, X. Wang, “Gated Bi-directional CNN for Object Detection,” ECCV 2016. 
+[d] Ouyang, W., Wang, X., Zhang, C., Yang, X. Factors in Finetuning Deep Model for Object Detection with Long-tail Distribution. CVPR 2016. 
+[e] Wanli Ouyang, Hongyang Li, Xingyu Zeng, and Xiaogang Wang, "Learning Deep Representation with Large-scale Attributes", In Proc. ICCV 2015.  
+[f] https://github.com/yjxiong/caffe  

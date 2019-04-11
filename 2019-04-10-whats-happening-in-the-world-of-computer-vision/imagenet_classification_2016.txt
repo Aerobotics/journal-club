@@ -1,0 +1,18 @@
+Object detection (DET) 
+We use several pre-trained models, including ResNet, Inception, Inception-Resnet etc. By taking the predict boxes from our best model as region proposals, we average the softmax scores and the box regression outputs across all models. Other improvements include annotations refine, boxes voting and features maxout. 
+
+Object classification/localization (CLS-LOC) 
+Based on image classification models like Inception, Inception-Resnet, ResNet and Wide Residual Network (WRN), we predict the class labels of the image. Then we refer to the framework of "Faster R-CNN" to predict bounding boxes based on the labels. Results from multiple models are fused in different ways, using the model accuracy as weights. 
+
+Scene classification (Scene) 
+We adopt different kinds of CNN models such as ResNet, Inception and WRN. To improve the performance of features from multiple scales and models, we implement a cascade softmax classifier after the extraction stage. 
+
+Object detection from video (VID) 
+Same methods as DET task were applied to each frame. Optical flow guided motion prediction helped to reduce the false negative detections. 
+
+
+[1] Faster R-CNN: Towards Real-Time Object Detection with Region Proposal Networks, Shaoqing Ren, Kaiming He, Ross Girshick, Jian Sun. NIPS 2015 
+
+[2] Inception-v4, Inception-ResNet and the Impact of Residual Connections on Learning, Christian Szegedy, Sergey Ioffe, Vincent Vanhoucke, Alex Alem. 
+
+[3] Zagoruyko S, Komodakis N. Wide Residual Networks[J]. arXiv preprint arXiv:1605.07146, 2016.

@@ -1,0 +1,17 @@
+We present a simple, highly efficient and modularized Dual Path Network (DPN) which introduces a novel dual path topology. The DPN model contains a residual path and a densely connected path which are able to effectively share common features while maintaining the flexibility to learn to explore new features. DPNs serve as our main network for all the tasks. 
+
+In the CLS-LOC task, we adopt the DPNs to predict the Top-5 objects and then assign the corresponding bounding boxes using DPN based Faster RCNNs [1]. 
+
+On the provided training data track, a shallow DPN-98 (236MB/11.7GFLOPs) surpasses the best ResNeXt-101(64×4d) [2] on the image classification task with 26% smaller model size, 25% less computational cost and 8% lower memory consumption, and a deeper DPN-131 (304MB/16.0GFLOPs) achieves top-1(top-5) classification error at 18.55%(4.16%) on the validation set using single 320x320 center corp. We combine in total two strong DPNs and two weaker DPNs combining with several existing CNNs to get the final prediction. 
+
+On the extra training data track, we pretrained a DPN-107 on ImageNet-5k dataset and then fine-tuned on the provided training set with 33k self-collected extra training images. With different fine-tuning strategies, we got two DPN-107 networks. The final prediction is a weighted combination of these two additional models and previous models. 
+
+For the bounding box prediction, we follow the Faster RCNN pipeline and train three DPNs (two DPN-92 and one DPN-131). Proposals are extracted from all models and the final scores are adjusted by the classification scores. 
+
+Technique details of the Dual Path Networks will be available in arXiv soon and the pertained models will also be public available at the same time. 
+
+
+*Note: All DPNs are trained using MXNet on 10 nodes with totally 40 K80 graphic cards from scratch. Without specific code optimization, the training speed of DPN-131 reaches > 60 samples/sec per node in synchronous way. 
+----- 
+[1] S Ren, et al. "Faster R-CNN: Towards real-time object detection with region proposal networks." NIPS. 2015. 
+[2] S Xie, et al. "Aggregated residual transformations for deep neural networks." CVPR. 2017.

@@ -1,0 +1,1 @@
+Fast descriptor coding and large-scale SVM training (http://image-net.org/challenges/LSVRC/2010/ILSVRC2010_NEC-UIUC.pdf)

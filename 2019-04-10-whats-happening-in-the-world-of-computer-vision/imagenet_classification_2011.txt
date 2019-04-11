@@ -1,0 +1,1 @@
+Compressed Fisher vectors for Large Scale Visual Recognition (http://image-net.org/challenges/LSVRC/2011/ilsvrc11.pdf)
